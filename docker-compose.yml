@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  verb-api:
+    build:
+      dockerfile: ./apps/the-verb-api/Dockerfile
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres-the-verb
+
+  postgres-the-verb:
+    image: postgres:15.3-alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes: 
+      - the-verb-db:/var/lib/postgresql/data
+
+volumes:
+  the-verb-db:
+    driver: local
