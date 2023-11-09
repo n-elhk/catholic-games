@@ -25,6 +25,7 @@
   "devDependencies": {
     "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^10.0.2",
+    "@nx/angular": "^17.1.1",
     "@nx/eslint": "17.1.1",
     "@nx/eslint-plugin": "17.1.1",
     "@nx/jest": "17.1.1",
@@ -50,4 +51,3 @@
     "typescript": "5.2.2"
   }
 }
-
