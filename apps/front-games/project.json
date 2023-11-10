@@ -1,0 +1,91 @@
+{
+  "name": "front-games",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "catholic-games",
+  "sourceRoot": "apps/front-games/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/front-games",
+        "index": "apps/front-games/src/index.html",
+        "browser": "apps/front-games/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/front-games/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/front-games/src/favicon.ico",
+          "apps/front-games/src/assets"
+        ],
+        "styles": ["apps/front-games/src/styles.scss"],
+        "scripts": [],
+        "server": "apps/front-games/src/main.server.ts",
+        "prerender": true,
+        "ssr": {
+          "entry": "apps/front-games/server.ts"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "front-games:build:production"
+        },
+        "development": {
+          "buildTarget": "front-games:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "front-games:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/front-games/**/*.ts",
+          "apps/front-games/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/front-games/jest.config.ts"
+      }
+    }
+  }
+}

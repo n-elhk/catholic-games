@@ -1,0 +1,142 @@
+// _colors.scss
+
+$color--interval: 7.6%;
+// Define your color variables
+$primary-color: #eee8d7 !default;
+$secondary-color: #365b97 !default;
+$tertiary-color: #5e514d !default;
+$grey-color: #909090 !default;
+$danger-color: #be0e25 !default;
+$success-color: #00b785 !default;
+$black-color: #000000 !default;
+$white-color: #ffffff !default;
+
+$light-primary-text: palette($primary-color, 300) !default;
+$dark-primary-text: palette($primary-color, 800) !default;
+
+// Theme Config
+body {
+  --primary-color: $primary-color;
+  --primary-lighter-color: palette($primary-color, 100);
+  --primary-darker-color: palette($primary-color, 800);
+  --text-primary-color: #{$light-primary-text};
+  --text-primary-lighter-color: #{$dark-primary-text};
+  --text-primary-darker-color: #{$light-primary-text};
+}
+
+body {
+  --secondary-color: $secondary-color;
+  --secondary-lighter-color: palette($secondary-color, 300);
+  --secondary-darker-color: palette($secondary-color, 700);
+  --text-secondary-color: #{$dark-primary-text};
+  --text-secondary-lighter-color: #{$dark-primary-text};
+  --text-secondary-darker-color: #{$dark-primary-text};
+}
+
+body {
+  --danger-color: #{$danger-color};
+  --danger-lighter-color: palette($danger-color, 300);
+  --danger-darker-color: palette($danger-color, 700);
+  --text-danger-color: #{$light-primary-text};
+  --text-danger-lighter-color: #{$dark-primary-text};
+  --text-danger-darker-color: #{$light-primary-text};
+}
+
+$colorMaps: (
+  "primary": (
+    100: lighten($primary-color, $color--interval * 4),
+    200: lighten($primary-color, $color--interval * 3),
+    300: lighten($primary-color, $color--interval * 2),
+    400: lighten($primary-color, $color--interval),
+    500: $primary-color,
+    600: darken($primary-color, $color--interval),
+    700: darken($primary-color, $color--interval * 2),
+    800: darken($primary-color, $color--interval * 3),
+    900: darken($primary-color, $color--interval * 4),
+  ),
+  "secondary": (
+    100: lighten($secondary-color, $color--interval * 4),
+    200: lighten($secondary-color, $color--interval * 3),
+    300: lighten($secondary-color, $color--interval * 2),
+    400: lighten($secondary-color, $color--interval),
+    500: $secondary-color,
+    600: darken($secondary-color, $color--interval),
+    700: darken($secondary-color, $color--interval * 2),
+    800: darken($secondary-color, $color--interval * 3),
+    900: darken($secondary-color, $color--interval * 4),
+  ),
+  "tertiary": (
+    100: lighten($tertiary-color, $color--interval * 4),
+    200: lighten($tertiary-color, $color--interval * 3),
+    300: lighten($tertiary-color, $color--interval * 2),
+    400: lighten($tertiary-color, $color--interval),
+    500: $tertiary-color,
+    600: darken($tertiary-color, $color--interval),
+    700: darken($tertiary-color, $color--interval * 2),
+    800: darken($tertiary-color, $color--interval * 3),
+    900: darken($tertiary-color, $color--interval * 4),
+  ),
+  "grey": (
+    100: lighten($grey-color, $color--interval * 4),
+    200: lighten($grey-color, $color--interval * 3),
+    300: lighten($grey-color, $color--interval * 2),
+    400: lighten($grey-color, $color--interval),
+    500: $grey-color,
+    600: darken($grey-color, $color--interval),
+    700: darken($grey-color, $color--interval * 2),
+    800: darken($grey-color, $color--interval * 3),
+    900: darken($grey-color, $color--interval * 4),
+  ),
+  "danger": (
+    100: lighten($danger-color, $color--interval * 4),
+    200: lighten($danger-color, $color--interval * 3),
+    300: lighten($danger-color, $color--interval * 2),
+    400: lighten($danger-color, $color--interval),
+    500: $danger-color,
+    600: darken($danger-color, $color--interval),
+    700: darken($danger-color, $color--interval * 2),
+    800: darken($danger-color, $color--interval * 3),
+    900: darken($danger-color, $color--interval * 4),
+  ),
+  "success": (
+    100: lighten($success-color, $color--interval * 4),
+    200: lighten($success-color, $color--interval * 3),
+    300: lighten($success-color, $color--interval * 2),
+    400: lighten($success-color, $color--interval),
+    500: $success-color,
+    600: darken($success-color, $color--interval),
+    700: darken($success-color, $color--interval * 2),
+    800: darken($success-color, $color--interval * 3),
+    900: darken($success-color, $color--interval * 4),
+  ),
+  "black": (
+    500: $black-color,
+  ),
+  "white": (
+    500: $white-color,
+  ),
+);
+
+@function palette($name, $level: 500) {
+  $colorMap: map_get($colorMaps, $name);
+  @return map_get($colorMap, $level);
+}
+
+
+
+// Example: Map your colour names to the variables
+
+$colors: () !default;
+$colors: map-merge(
+  (
+    "primary": $primary-color,
+    "secondary": $secondary-color,
+    "tertiary": $tertiary-color,
+    "grey": $secondary-color,
+    "danger": $grey-color,
+    "success": $success-color,
+    "black": $black-color,
+    "white": $white-color,
+  ),
+  $colors
+);

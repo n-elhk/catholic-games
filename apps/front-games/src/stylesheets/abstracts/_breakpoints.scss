@@ -1,0 +1,20 @@
+$container-max-width: 1440px;
+$cf-fz-base-px: 16;
+$cf-xsmall-to-small: 37.5em;
+$cf-small-to-medium: 60em;
+$cf-medium-to-large: 64em;
+$cf-xsmall-to-xlarge: 75rem;
+$cf-max-width-1px: 0.0625em;
+$breakpoints: (
+  'xsmall': '(max-width: #{$cf-xsmall-to-small - $cf-max-width-1px})',
+  'small': '(min-width: #{$cf-xsmall-to-small}) and (max-width: #{$cf-small-to-medium - $cf-max-width-1px})',
+  'medium': '(min-width: #{$cf-small-to-medium}) and (max-width: #{$cf-medium-to-large - $cf-max-width-1px})',
+  'large': '(min-width: #{$cf-medium-to-large})',
+  'xsmallToSmall': '(max-width: #{$cf-small-to-medium - $cf-max-width-1px})',
+  'xsmallToMedium': '(max-width: #{$cf-medium-to-large - $cf-max-width-1px})',
+  'smallToMedium': '(min-width: #{$cf-xsmall-to-small}) and (max-width: #{$cf-medium-to-large - $cf-max-width-1px})',
+  'smallToLarge': '(min-width: #{$cf-xsmall-to-small})',
+  'mediumToLarge': '(min-width: #{$cf-small-to-medium})',
+  'xsmallToXlarge': '(max-width: #{$cf-xsmall-to-xlarge})',
+  'largeToXsmall': '(max-width: #{$cf-medium-to-large})'
+);
