@@ -1,0 +1,27 @@
+<div class="header--container">
+    <div class="title">
+      <span>{{ title }}</span>
+    </div>
+  
+    <div class="navivations--container">
+      <svg-icon svgName="bar_chart" (click)="openStatDialog()" />
+      <svg-icon svgName="help" (click)="openHelpDialog()" />
+    </div>
+  </div>
+  
+  <div class="page-container">
+    @defer (when status() === LOADED) { 
+      @switch(gameStatus()){
+       @case ('IN_PROGRESS') {
+        <wd-game />
+        } 
+       @default {
+          <wd-waiting-board />
+        } 
+      } 
+  
+    } @loading {
+      <div>Chargement</div>
+    }
+  </div>
+  

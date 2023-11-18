@@ -1,0 +1,72 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "useDefineForClassFields": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@models": [
+        "apps/the-verb-front/src/app/core/models/index.ts"
+      ],
+      "@models/*": [
+        "apps/the-verb-front/src/app/core/models/*"
+      ],
+      "@mocks": [
+        "apps/the-verb-front/src/app/core/mocks/index.ts"
+      ],
+      "@mocks/*": [
+        "apps/the-verb-front/src/app/core/mocks/*"
+      ],
+      "@services": [
+        "apps/the-verb-front/src/app/core/services/index.ts"
+      ],
+      "@services/*": [
+        "apps/the-verb-front/src/app/core/services/*"
+      ],
+      "@store": [
+        "apps/the-verb-front/src/app/core/store/index.ts"
+      ],
+      "@store/*": [
+        "apps/the-verb-front/src/app/core/store/*"
+      ],
+      "@components/": [
+        "apps/the-verb-front/src/app/components/index.ts"
+      ],
+      "@components/*": [
+        "apps/the-verb-front/src/app/components/*"
+      ],
+
+      "@common": [
+        "apps/the-verb-front/apps/the-verb-front/src/app/core/common/index.ts"
+      ],
+      "@common/*": [
+        "apps/the-verb-front/src/app/common/*"
+      ]
+    },
+  },
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./tsconfig.editor.json"
+    }
+  ],
+  "extends": "../../tsconfig.base.json",
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

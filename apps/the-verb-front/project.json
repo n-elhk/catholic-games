@@ -1,0 +1,91 @@
+{
+  "name": "the-verb-front",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "catholic-games",
+  "sourceRoot": "apps/the-verb-front/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/the-verb-front",
+        "index": "apps/the-verb-front/src/index.html",
+        "browser": "apps/the-verb-front/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/the-verb-front/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/the-verb-front/src/favicon.ico",
+          "apps/the-verb-front/src/assets"
+        ],
+        "styles": ["apps/the-verb-front/src/styles.scss"],
+        "scripts": [],
+        "server": "apps/the-verb-front/src/main.server.ts",
+        "prerender": true,
+        "ssr": {
+          "entry": "apps/the-verb-front/server.ts"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "the-verb-front:build:production"
+        },
+        "development": {
+          "buildTarget": "the-verb-front:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "the-verb-front:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/the-verb-front/**/*.ts",
+          "apps/the-verb-front/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/the-verb-front/jest.config.ts"
+      }
+    }
+  }
+}
