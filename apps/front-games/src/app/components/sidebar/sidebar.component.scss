@@ -25,12 +25,12 @@
   gap: 2rem;
 }
 
-.adev-nav--col li {
+.adev-nav--col a {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-block: .3rem;
+  padding-block: 0.3rem;
 
   svg {
     fill: #675883;
@@ -43,5 +43,15 @@
       fill: black;
     }
     color: black;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .adev-nav{
+    padding: 1rem 0;
+  }
+  a .page-name {
+    display: none;
   }
 }
