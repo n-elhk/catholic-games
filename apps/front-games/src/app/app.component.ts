@@ -10,5 +10,5 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'front-games';
+  readonly title = 'front-games';
 }
